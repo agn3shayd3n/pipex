@@ -1,0 +1,56 @@
+EJEMPLOS PARA LA CORRECCIÓN:
+
+Pipex: ./pipex infile.txt "cat" "wc -l" outfile.txt
+
+Bash: < infile.txt cat | wc -l > bash_output.txt
+
+Proceso: El contenido de infile.txt se pasa a cat, que lo envía a wc -l para contar las líneas.
+-
+
+Pipex: ./pipex infile.txt "grep 'hello'" "wc -l" outfile.txt
+
+Bash: < infile.txt grep 'hello' | wc -l > bash_output.txt
+
+Proceso: infile.txt se pasa a grep, que filtra las líneas y las envía a wc -l para contar cuántas de ellas contienen "hello"
+-
+
+Pipex: ./pipex infile.txt "tr 'a-z' 'A-Z'" "wc -w" outfile.txt
+
+Bash: < infile.txt tr 'a-z' 'A-Z' | wc -w > bash_output.txt       
+
+Proceso: infile.txt se pasa a tr, que transforma las letras a mayúsculas y envía la salida a wc -w,
+que cuenta las palabras resultantes
+-
+
+Pipex: ./pipex infile.txt "sort" "wc -l" outfile.txt
+
+Bash: < infile.txt sort | wc -l > bash_output.txt
+
+Proceso: infile.txt se pasa a sort, que ordena las líneas y envía el resultado a wc -l
+para contar cuántas líneas hay en total
+-
+
+Pipex: ./pipex infile.txt "grep a" "sort" outfile.txt
+
+Bash: < infile.txt grep 'a' | sort > bash_output.txt
+
+Proceso: infile.txt se pasa a grep, que selecciona las líneas con "a" y las envía a sort para ordenarlas
+
+-
+
+Pipex: ./pipex infile.txt "head -n 3" "tail -n 1" outfile.txt
+
+Bash: < infile.txt head -n 3 | tail -n 1 > bash_output.txt
+
+Proceso: infile.txt se pasa a head, que toma las primeras 3 líneas y las envía a tail,
+que luego toma solo la última de esas 3 (la tercera línea).
+-
+
+Pipex: ./pipex infile.txt "tr a-z A-Z" "cut -c 1-10" outfile.txt
+
+Bash: < infile.txt tr 'a-z' 'A-Z' | cut -c 1-10 > bash_output.txt
+
+Proceso: infile.txt se pasa a tr, que transforma las letras a mayúsculas.
+La salida se envía a cut, que toma solo los primeros 10 caracteres de cada línea resultante
+-
+
